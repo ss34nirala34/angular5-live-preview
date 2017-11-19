@@ -1,0 +1,81 @@
+{
+    "name": "angular5-live-preview",
+    "displayName": "Angular 5 - Live Preview",
+    "description": "Live preview of Angular 5 on web server",
+    "version": "0.0.1",
+    "publisher": "gurayyarar",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gurayyarar/angular5-live-preview"
+    },
+    "bugs": {
+        "url": "https://github.com/gurayyarar/angular5-live-preview/issues"
+    },
+    "engines": {
+        "vscode": "^1.18.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "icon": "images/icon.png",
+    "keywords": [
+        "Angular",
+        "Angular 5",
+        "Live Preview",
+        "Preview",
+        "VSCode"
+    ],
+    "activationEvents": [
+        "onCommand:extension.preview",
+        "onCommand:extension.launch"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.preview",
+                "title": "Angular 5 - Preview on side panel"
+            },
+            {
+                "command": "extension.launch",
+                "title": "Angular 5 - Open in web browser"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+              {
+                "command": "extension.preview",
+                "when": "resourceFilename == .angular-cli.json"
+              },
+              {
+                "command": "extension.launch",
+                "when": "resourceFilename == .angular-cli.json"
+              }
+            ],
+            "editor/context": [
+              {
+                "command": "extension.preview",
+                "when": "resourceFilename == .angular-cli.json"
+              },
+              {
+                "command": "extension.launch",
+                "when": "resourceFilename == .angular-cli.json"
+              }
+            ]
+          }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
